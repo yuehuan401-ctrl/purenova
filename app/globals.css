@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background: #fbfbf8;
+  font-family: Inter, Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: #dcecf2;
+  color: #111318;
+}
+
+@layer components {
+  .site-scale {
+    width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    transform-origin: top center;
+    zoom: min(calc(100vw / 1440px), 1);
+  }
+
+  .nav-link {
+    @apply transition hover:text-ink;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-7 text-sm font-semibold text-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-graphite;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-line bg-white/70 px-7 text-sm font-semibold text-ink backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-ink;
+  }
+
+  .glass-card {
+    @apply rounded-3xl border border-white/70 bg-white/65 shadow-soft backdrop-blur-2xl;
+  }
+
+  .glass-panel {
+    @apply rounded-[1.75rem] border border-white/70 bg-white/55 shadow-soft backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:bg-white/75;
+  }
+
+  .section-shell {
+    @apply px-8 py-32;
+  }
+
+  .section-shell > * {
+    @apply mx-auto max-w-[1440px];
+  }
+
+  .section-heading {
+    @apply mb-12 max-w-3xl;
+  }
+
+  .section-heading p {
+    @apply mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-graphite/50;
+  }
+
+  .section-heading h2 {
+    @apply font-display text-6xl font-semibold leading-tight tracking-[-0.01em];
+  }
+
+  .icon-button {
+    @apply inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-white transition duration-300 hover:-translate-y-0.5 hover:border-ink;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease both;
+}
+
+.animate-soft-scale {
+  animation: soft-scale 0.5s ease 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
