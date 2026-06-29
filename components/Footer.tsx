@@ -63,9 +63,9 @@ const footerLinkClass =
 
 export default function Footer() {
   return (
-    <footer className="bg-ink px-8 py-14 text-white">
+    <footer className="bg-ink px-5 py-12 text-white md:px-8 md:py-14">
       <div className="mx-auto max-w-[1440px]">
-        <div className="grid grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.9fr] gap-12 border-b border-white/10 pb-12">
+        <div className="grid grid-cols-1 gap-10 border-b border-white/10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.25fr_0.8fr_0.8fr_0.8fr_0.9fr] lg:gap-12">
           <div>
             <Link href="/" className="font-display text-xl font-semibold tracking-[0.34em]">
               PureNova
@@ -121,11 +121,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between gap-5 pt-8">
+        <div className="flex flex-col items-start justify-between gap-5 pt-8 lg:flex-row lg:items-center">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/35">
             Accepted Payments
           </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex w-full flex-wrap gap-3 lg:w-auto lg:justify-end">
             {payments.map((payment) => {
               const Icon = payment.icon;
               return (

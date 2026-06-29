@@ -24,8 +24,8 @@ export const metadata = {
 export default function LoginPage() {
   return (
     <main className="site-scale min-h-screen bg-white text-ink">
-      <header className="border-b border-line bg-white">
-        <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-8">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/95 backdrop-blur-2xl">
+        <div className="mx-auto flex min-h-20 max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-3 md:px-8">
           <Link href="/" className="font-display text-sm font-semibold tracking-[0.28em]">
             PureNova
           </Link>
@@ -35,7 +35,7 @@ export default function LoginPage() {
         </div>
       </header>
 
-      <section className="px-8 py-32">
+      <section className="px-5 pb-20 pt-32 md:px-8 lg:pb-32 lg:pt-36">
         <div className="mx-auto flex max-w-md flex-col items-center text-center">
           <div className="mb-8 grid h-16 w-16 place-items-center rounded-full bg-mist">
             <UserRound size={28} strokeWidth={1.7} />
@@ -72,14 +72,14 @@ export default function LoginPage() {
       </section>
 
       <footer className="bg-ink px-8 py-16 text-center text-white">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-4xl px-5 md:px-8">
           <div className="mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full border border-white/30 font-display text-xs font-semibold tracking-[0.2em]">
             PN
           </div>
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/80">
             PureNova Account
           </p>
-          <div className="mt-8 flex justify-center gap-6 text-white/70">
+          <div className="mt-8 flex flex-wrap justify-center gap-5 text-white/70 md:gap-6">
             <Link href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <Instagram size={20} />
             </Link>

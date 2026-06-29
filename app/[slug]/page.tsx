@@ -342,12 +342,12 @@ export default async function InfoPage({ params }: InfoPageProps) {
 
   return (
     <main className="site-scale min-h-screen bg-pearl text-ink">
-      <header className="sticky top-0 z-50 border-b border-white/60 bg-white/75 backdrop-blur-2xl">
-        <nav className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-8" aria-label="Information page navigation">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/60 bg-white/75 backdrop-blur-2xl">
+        <nav className="mx-auto flex min-h-16 max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-3 md:px-8" aria-label="Information page navigation">
           <Link href="/" className="font-display text-sm font-semibold tracking-[0.28em]">
             PureNova
           </Link>
-          <div className="flex items-center gap-4 text-sm font-medium text-graphite/70">
+          <div className="flex flex-wrap items-center justify-end gap-3 text-sm font-medium text-graphite/70 md:gap-4">
             <Link href="/" className="transition hover:text-ink">
               Back Home
             </Link>
@@ -358,14 +358,14 @@ export default async function InfoPage({ params }: InfoPageProps) {
         </nav>
       </header>
 
-      <section className="px-8 py-28">
+      <section className="px-5 pb-16 pt-28 md:px-8 md:pb-24 md:pt-32 lg:pb-28 lg:pt-36">
         <div className="mx-auto max-w-[1440px]">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-graphite/45">
             {page.eyebrow}
           </p>
-          <div className="mt-8 grid grid-cols-[0.9fr_0.55fr] gap-16">
+          <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_0.55fr] lg:gap-16">
             <div>
-              <h1 className="max-w-4xl font-display text-7xl font-semibold leading-[0.98] tracking-[-0.02em]">
+              <h1 className="max-w-4xl font-display text-[clamp(3rem,11vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.02em]">
                 {page.title}
               </h1>
               <p className="mt-8 max-w-3xl text-xl leading-9 text-graphite/65">
@@ -385,8 +385,8 @@ export default async function InfoPage({ params }: InfoPageProps) {
         </div>
       </section>
 
-      <section className="px-8 pb-32">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-3 gap-6">
+      <section className="px-5 pb-20 md:px-8 lg:pb-32">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {page.sections.map((section) => (
             <article key={section.title} className="rounded-[1.75rem] border border-white/70 bg-white/70 p-8 shadow-soft backdrop-blur-2xl">
               <h2 className="font-display text-2xl font-semibold">{section.title}</h2>
@@ -416,8 +416,8 @@ export default async function InfoPage({ params }: InfoPageProps) {
 
 function TrackOrderPanel() {
   return (
-    <section className="px-8 pb-32">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-[0.85fr_1fr] items-center gap-10 rounded-[2rem] bg-ink p-10 text-white shadow-float">
+    <section className="px-5 pb-20 md:px-8 lg:pb-32">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-8 rounded-[2rem] bg-ink p-6 text-white shadow-float md:p-10 lg:grid-cols-[0.85fr_1fr] lg:gap-10">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">Order Tracking</p>
           <h2 className="mt-5 font-display text-5xl font-semibold">Enter your order number.</h2>
@@ -439,8 +439,8 @@ function TrackOrderPanel() {
 
 function ContactPanel() {
   return (
-    <section className="px-8 pb-32">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-[1fr_1fr] gap-10">
+    <section className="px-5 pb-20 md:px-8 lg:pb-32">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:gap-10">
         <div className="rounded-[2rem] bg-ink p-10 text-white shadow-float">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/45">Contact</p>
           <h2 className="mt-5 font-display text-5xl font-semibold">Contact the PureNova team.</h2>

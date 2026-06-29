@@ -26,6 +26,8 @@ body {
 img,
 video {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 a,
@@ -44,11 +46,9 @@ button {
 
 @layer components {
   .site-scale {
-    width: 1440px;
+    width: 100%;
     min-height: 100vh;
     margin: 0 auto;
-    transform-origin: top center;
-    zoom: min(calc(100vw / 1440px), 1);
   }
 
   .nav-link {
@@ -56,11 +56,11 @@ button {
   }
 
   .btn-primary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-7 text-sm font-semibold text-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-graphite;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-ink px-7 text-center text-sm font-semibold text-white shadow-soft transition duration-300 hover:-translate-y-0.5 hover:bg-graphite;
   }
 
   .btn-secondary {
-    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-line bg-white/70 px-7 text-sm font-semibold text-ink backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-ink;
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-line bg-white/70 px-7 text-center text-sm font-semibold text-ink backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-ink;
   }
 
   .glass-card {
@@ -72,7 +72,7 @@ button {
   }
 
   .section-shell {
-    @apply px-8 py-32;
+    @apply px-5 py-20 md:px-8 md:py-24 lg:py-32;
   }
 
   .section-shell > * {
@@ -80,7 +80,7 @@ button {
   }
 
   .section-heading {
-    @apply mb-12 max-w-3xl;
+    @apply mb-10 max-w-3xl md:mb-12;
   }
 
   .section-heading p {
@@ -88,7 +88,7 @@ button {
   }
 
   .section-heading h2 {
-    @apply font-display text-6xl font-semibold leading-tight tracking-[-0.01em];
+    @apply font-display text-[clamp(2.25rem,7vw,3.75rem)] font-semibold leading-tight tracking-[-0.01em];
   }
 
   .icon-button {

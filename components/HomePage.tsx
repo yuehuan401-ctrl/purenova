@@ -22,7 +22,7 @@ import {
 const features = [
   {
     icon: Wind,
-    title: "360° Air Circulation",
+    title: "360掳 Air Circulation",
     description:
       "A top vortex outlet helps clean air rise and circulate around the room, making it suitable for desks, nurseries, bedrooms and pet corners."
   },
@@ -120,16 +120,16 @@ export default function HomePage() {
 
   return (
     <main className="site-scale min-h-screen overflow-x-hidden bg-pearl text-ink">
-      <header className="sticky top-0 z-50 border-b border-white/60 bg-white/70 backdrop-blur-2xl">
-        <nav className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-8" aria-label="Main navigation">
-          <Link href="#top" className="font-display text-2xl font-semibold tracking-[0.32em]">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/60 bg-white/70 backdrop-blur-2xl">
+        <nav className="mx-auto flex min-h-16 max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-3 md:px-8" aria-label="Main navigation">
+          <Link href="#top" className="font-display text-xl font-semibold tracking-[0.28em] sm:text-2xl sm:tracking-[0.32em]">
             PureNova
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
             <button
               type="button"
               onClick={() => window.dispatchEvent(new CustomEvent("purenova-open-cart"))}
-              className="relative inline-flex items-center gap-2 rounded-full border border-line bg-white px-5 py-2.5 text-sm font-medium text-ink shadow-soft transition hover:-translate-y-0.5 hover:border-ink"
+              className="relative inline-flex items-center gap-2 rounded-full border border-line bg-white px-4 py-2.5 text-sm font-medium text-ink shadow-soft transition hover:-translate-y-0.5 hover:border-ink sm:px-5"
             >
               <ShoppingCart size={16} />
               Cart
@@ -139,7 +139,7 @@ export default function HomePage() {
             </button>
             <Link
               href="/login"
-              className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-graphite"
+              className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-graphite sm:px-5"
             >
               <User size={16} />
               Account
@@ -148,11 +148,11 @@ export default function HomePage() {
         </nav>
       </header>
 
-      <section id="top" className="relative min-h-screen px-8 pt-28">
+      <section id="top" className="relative px-5 pt-28 md:px-8 md:pt-32 lg:min-h-screen lg:pt-36">
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_24%,rgba(220,236,242,0.9),transparent_30%),linear-gradient(180deg,#fff,#f7f8f6)]" />
-        <div className="mx-auto grid min-h-[calc(100vh-7rem)] max-w-[1440px] grid-cols-[0.9fr_1.1fr] items-center gap-14 pb-20">
+        <div className="mx-auto grid max-w-[1440px] items-center gap-10 pb-16 md:gap-12 lg:min-h-[calc(100vh-7rem)] lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:pb-20">
           <div className="animate-fade-up">
-            <div className="mb-14 grid max-w-xl grid-cols-3 gap-3">
+            <div className="mb-8 grid max-w-xl grid-cols-1 gap-3 sm:grid-cols-3 lg:mb-14">
               {[
                 ["H13 HEPA", "Fine particle filtration"],
                 ["Aroma Slot", "Purification with fragrance"],
@@ -169,17 +169,17 @@ export default function HomePage() {
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-graphite/60">
               EJ-JHQ101 Desktop Air Purifier
             </p>
-            <h1 className="max-w-2xl font-display text-8xl font-semibold leading-[0.98] tracking-[-0.02em]">
+            <h1 className="max-w-2xl font-display text-[clamp(3.15rem,14vw,6rem)] font-semibold leading-[0.98] tracking-[-0.02em]">
               Cleaner air, calmer living.
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-graphite/70">
               PureNova Air 101 combines H13 HEPA filtration, activated carbon odor control and an aroma pad slot for offices, bedrooms, pet homes and newly renovated small spaces.
             </p>
-            <div className="mt-9 flex gap-3">
-              <button type="button" onClick={scrollToProductSelection} className="btn-primary">
+            <div className="mt-9 grid gap-3 sm:flex">
+              <button type="button" onClick={scrollToProductSelection} className="btn-primary w-full sm:w-auto">
                 Buy PureNova Air 101
               </button>
-              <Link href="#features" className="btn-secondary">
+              <Link href="#features" className="btn-secondary w-full sm:w-auto">
                 View Product Benefits
               </Link>
             </div>
@@ -210,13 +210,13 @@ export default function HomePage() {
                   loop
                 />
               </button>
-              <div className="glass-card absolute -left-3 top-8 px-5 py-4">
+              <div className="glass-card absolute left-3 top-4 px-4 py-3 sm:-left-3 sm:top-8 sm:px-5 sm:py-4">
                 <span className="block text-xs uppercase tracking-[0.22em] text-graphite/55">Coverage</span>
-                <strong className="mt-1 block text-2xl font-semibold">20 m²</strong>
+                <strong className="mt-1 block text-xl font-semibold sm:text-2xl">20 m虏</strong>
               </div>
-              <div className="glass-card absolute -bottom-4 right-4 px-5 py-4">
+              <div className="glass-card absolute bottom-3 right-3 px-4 py-3 sm:-bottom-4 sm:right-4 sm:px-5 sm:py-4">
                 <span className="block text-xs uppercase tracking-[0.22em] text-graphite/55">Power</span>
-                <strong className="mt-1 block text-2xl font-semibold">5W USB</strong>
+                <strong className="mt-1 block text-xl font-semibold sm:text-2xl">5W USB</strong>
               </div>
             </div>
           </div>
@@ -230,7 +230,7 @@ export default function HomePage() {
           <p>Product Benefits</p>
           <h2>Fresh air and gentle aroma for a quieter small-space routine.</h2>
         </div>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
@@ -256,8 +256,8 @@ export default function HomePage() {
               <Star key={index} size={18} fill="currentColor" strokeWidth={1.4} />
             ))}
           </div>
-          <blockquote className="font-display text-5xl font-medium leading-tight tracking-[-0.01em]">
-            “{currentReview.quote}”
+          <blockquote className="font-display text-[clamp(2rem,7vw,3rem)] font-medium leading-tight tracking-[-0.01em]">
+            "{currentReview.quote}"
           </blockquote>
           <p className="mt-7 text-sm font-semibold uppercase tracking-[0.2em] text-graphite/55">
             {currentReview.name} - {currentReview.country}
@@ -273,14 +273,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="px-8 py-14">
+      <section className="px-5 py-14 md:px-8">
         <div className="mx-auto max-w-[1440px] space-y-6">
           {stories.map((story, index) => (
-            <article key={story.title} className={`grid grid-cols-2 items-center gap-8 ${index % 2 ? "[&>button:first-child]:order-2" : ""}`}>
+            <article key={story.title} className={`grid grid-cols-1 items-center gap-7 lg:grid-cols-2 lg:gap-8 ${index % 2 ? "lg:[&>button:first-child]:order-2" : ""}`}>
               <button
                 type="button"
                 onClick={() => setPreviewMedia({ type: "image", src: story.image, alt: story.title })}
-                className="group flex h-[240px] cursor-zoom-in items-center justify-center overflow-hidden rounded-[1.5rem] bg-white text-left shadow-soft"
+                className="group flex min-h-[260px] cursor-zoom-in items-center justify-center overflow-hidden rounded-[1.5rem] bg-white text-left shadow-soft sm:min-h-[320px] lg:h-[360px]"
                 aria-label={`View image for ${story.title}`}
               >
                 <Image
@@ -295,8 +295,8 @@ export default function HomePage() {
                   loading="lazy"
                 />
               </button>
-              <div className="max-w-2xl px-8">
-                <h2 className="font-display text-4xl font-semibold leading-tight tracking-[-0.01em]">{story.title}</h2>
+              <div className="max-w-2xl px-0 lg:px-8">
+                <h2 className="font-display text-[clamp(2rem,6vw,2.5rem)] font-semibold leading-tight tracking-[-0.01em]">{story.title}</h2>
                 <p className="mt-4 text-base leading-7 text-graphite/65">{story.body}</p>
               </div>
             </article>
@@ -304,15 +304,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="social" className="bg-white px-8 py-32 text-center">
+      <section id="social" className="bg-white px-5 py-20 text-center md:px-8 lg:py-32">
         <div className="mx-auto max-w-4xl">
-          <div className="inline-flex items-center justify-center gap-4">
-            <h2 className="font-display text-7xl font-semibold italic tracking-[-0.03em] text-[#34346f]">
+          <div className="inline-flex flex-wrap items-center justify-center gap-4">
+            <h2 className="font-display text-[clamp(3rem,12vw,4.5rem)] font-semibold italic tracking-[-0.03em] text-[#34346f]">
               @PureNova
             </h2>
             <span className="grid h-12 w-12 place-items-center rounded-full bg-sky-400 text-lg font-black text-white">
-              ✓
-            </span>
+              鉁?            </span>
           </div>
           <p className="mt-6 text-base font-semibold uppercase tracking-[0.28em] text-[#34346f]">
             Follow PureNova on Instagram

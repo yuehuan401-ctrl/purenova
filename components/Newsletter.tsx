@@ -13,8 +13,8 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="border-t border-line bg-white px-5 py-20 lg:px-8">
-      <div className="mx-auto grid max-w-[1440px] items-center gap-10 rounded-[2rem] bg-pearl px-6 py-10 shadow-soft md:grid-cols-[0.95fr_1.05fr] lg:px-12 lg:py-14">
+    <section className="border-t border-line bg-white px-5 py-16 md:py-20 lg:px-8">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-8 rounded-[2rem] bg-pearl px-5 py-8 shadow-soft md:grid-cols-[0.95fr_1.05fr] md:gap-10 md:px-6 md:py-10 lg:px-12 lg:py-14">
         <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-graphite/50">
             Newsletter

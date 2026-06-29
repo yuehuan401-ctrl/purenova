@@ -121,12 +121,12 @@ export default function ProductSelection() {
   return (
     <section id="shop" className="section-shell scroll-mt-20 bg-[radial-gradient(circle_at_74%_24%,rgba(220,236,242,0.9),transparent_30%),linear-gradient(180deg,#fff,#f7f8f6)]">
       <div>
-        <div className="mb-12 flex items-end justify-between gap-10">
+        <div className="mb-10 flex flex-col items-start justify-between gap-6 md:mb-12 lg:flex-row lg:items-end lg:gap-10">
           <div className="max-w-3xl">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-graphite/50">
               Product Selection
             </p>
-            <h2 className="font-display text-6xl font-semibold leading-tight tracking-[-0.01em]">
+            <h2 className="font-display text-[clamp(2.6rem,8vw,3.75rem)] font-semibold leading-tight tracking-[-0.01em]">
               Choose Your PureNova
             </h2>
             <p className="mt-5 text-lg leading-8 text-graphite/65">
@@ -135,7 +135,7 @@ export default function ProductSelection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {products.map((product, index) => {
             const isSelected = product.id === selectedId;
 
@@ -149,7 +149,7 @@ export default function ProductSelection() {
                 transition={{ duration: 0.42, delay: index * 0.06, ease: "easeOut" }}
                 whileHover={{ y: -6 }}
                 onClick={() => setSelectedId(product.id)}
-                className={`relative flex min-h-[640px] flex-col rounded-[28px] bg-white p-8 text-left shadow-soft transition duration-300 ${
+                className={`relative flex min-h-0 flex-col rounded-[28px] bg-white p-6 text-left shadow-soft transition duration-300 sm:p-8 lg:min-h-[640px] ${
                   isSelected
                     ? "border-2 border-[#f6a6bb] shadow-[0_24px_70px_rgba(246,166,187,0.28)]"
                     : "border border-line hover:border-graphite/20"
@@ -165,7 +165,7 @@ export default function ProductSelection() {
                   {product.badge}
                 </span>
 
-                <div className="mb-7 flex h-52 items-center justify-center overflow-hidden rounded-[22px] bg-mist">
+                <div className="mb-7 flex h-48 items-center justify-center overflow-hidden rounded-[22px] bg-mist sm:h-52">
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -177,9 +177,9 @@ export default function ProductSelection() {
                   />
                 </div>
 
-                <h3 className="font-display text-3xl font-semibold leading-tight">{product.name}</h3>
+                <h3 className="font-display text-[clamp(1.7rem,6vw,1.875rem)] font-semibold leading-tight">{product.name}</h3>
                 <p className="mt-2 text-sm font-medium text-graphite/55">{product.cnName}</p>
-                <strong className="mt-6 block font-display text-5xl font-semibold">{product.price}</strong>
+                <strong className="mt-6 block font-display text-[clamp(2.5rem,10vw,3rem)] font-semibold">{product.price}</strong>
 
                 <div className="mt-7 space-y-4 border-y border-line py-6">
                   <div>
@@ -188,7 +188,7 @@ export default function ProductSelection() {
                     </p>
                     <p className="mt-2 text-sm leading-6 text-graphite/70">{product.configuration}</p>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 text-sm text-graphite/65">
+                  <div className="grid grid-cols-1 gap-4 text-sm text-graphite/65 sm:grid-cols-2">
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-[0.2em] text-graphite/40">
                         Size
@@ -223,7 +223,7 @@ export default function ProductSelection() {
 
         <motion.div
           layout
-          className="mt-8 flex items-center justify-between gap-6 rounded-[28px] border border-line bg-ink p-5 pl-7 text-white shadow-float"
+          className="mt-8 flex flex-col items-stretch justify-between gap-4 rounded-[28px] border border-line bg-ink p-5 text-white shadow-float md:flex-row md:items-center md:gap-6 md:pl-7"
         >
           <p className="text-base text-white/75">
             Selected: <strong className="font-semibold text-white">{selectedProduct.name}</strong> -{" "}
@@ -239,10 +239,10 @@ export default function ProductSelection() {
           </button>
         </motion.div>
 
-        <motion.div layout className="mt-4 flex items-center justify-end">
+        <motion.div layout className="mt-4 flex items-center justify-stretch md:justify-end">
           <Link
             href={checkoutHref}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-line bg-white px-7 text-sm font-semibold text-ink shadow-soft transition duration-300 hover:-translate-y-0.5"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-line bg-white px-7 text-sm font-semibold text-ink shadow-soft transition duration-300 hover:-translate-y-0.5 md:w-auto"
           >
             Continue To Checkout
             <ChevronRight size={17} />
@@ -257,7 +257,7 @@ export default function ProductSelection() {
             animate={{ opacity: 1, y: 0, x: "-50%" }}
             exit={{ opacity: 0, y: 12, x: "-50%" }}
             transition={{ duration: 0.28, ease: "easeOut" }}
-            className="fixed bottom-8 left-1/2 z-[110] rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white shadow-float"
+            className="fixed bottom-20 left-1/2 z-[10010] max-w-[calc(100vw-2rem)] rounded-full bg-ink px-6 py-3 text-center text-sm font-semibold text-white shadow-float md:bottom-8"
           >
             {cartFeedback}
           </motion.div>
@@ -265,7 +265,7 @@ export default function ProductSelection() {
       </AnimatePresence>
 
       <div
-        className={`fixed inset-0 z-[90] transition ${
+        className={`fixed inset-0 z-[10000] transition ${
           cartOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
         aria-hidden={!cartOpen}
@@ -279,22 +279,22 @@ export default function ProductSelection() {
           aria-label="Close cart overlay"
         />
         <aside
-          className={`absolute right-0 top-0 flex h-full w-[420px] flex-col bg-white shadow-float transition duration-300 ${
+          className={`fixed inset-y-0 right-0 flex h-full w-screen max-w-full flex-col bg-white shadow-float transition duration-300 sm:w-[420px] ${
             cartOpen ? "translate-x-0" : "translate-x-full"
           }`}
           aria-label="Shopping cart"
         >
-          <div className="flex items-center justify-between border-b border-line px-6 py-5">
-            <div className="flex items-center gap-3">
-              <ShoppingCart size={20} />
-              <h2 className="font-display text-xl font-semibold">Shopping Cart</h2>
+          <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-4 sm:px-6 sm:py-5">
+            <div className="flex min-w-0 items-center gap-3">
+              <ShoppingCart size={20} className="shrink-0" />
+              <h2 className="min-w-0 truncate font-display text-lg font-semibold sm:text-xl">Shopping Cart</h2>
               <span className="rounded-full bg-ink px-2.5 py-1 text-xs font-semibold text-white">
                 {cartCount}
               </span>
             </div>
             <button
               type="button"
-              className="rounded-full border border-line p-2 transition hover:bg-mist"
+              className="shrink-0 rounded-full border border-line p-2 transition hover:bg-mist"
               onClick={() => setCartOpen(false)}
               aria-label="Close shopping cart"
             >
@@ -302,7 +302,7 @@ export default function ProductSelection() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-6 py-6">
+          <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-5 sm:px-6 sm:py-6">
             {cartItems.length > 0 ? (
               <div className="space-y-4">
                 {cartItems.map((item) => {
@@ -310,19 +310,19 @@ export default function ProductSelection() {
                   if (!product) return null;
 
                   return (
-                    <div key={item.productId} className="rounded-[1.5rem] border border-line p-5">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
+                    <div key={item.productId} className="min-w-0 rounded-[1.5rem] border border-line p-4 sm:p-5">
+                      <div className="flex items-start justify-between gap-3 sm:gap-4">
+                        <div className="min-w-0">
                           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-graphite/40">
                             Selected Model
                           </p>
-                          <h3 className="mt-2 font-display text-lg font-semibold">{product.name}</h3>
+                          <h3 className="mt-2 break-words font-display text-base font-semibold leading-tight sm:text-lg">{product.name}</h3>
                           <p className="mt-1 text-sm text-graphite/55">{product.cnName}</p>
                           <p className="mt-3 font-display text-2xl font-semibold">{product.price}</p>
                         </div>
                         <button
                           type="button"
-                          className="rounded-full border border-line p-2 text-graphite/50 transition hover:border-ink hover:text-ink"
+                          className="shrink-0 rounded-full border border-line p-2 text-graphite/50 transition hover:border-ink hover:text-ink"
                           onClick={() => removeCartItem(item.productId)}
                           aria-label="Remove item"
                         >
@@ -330,7 +330,7 @@ export default function ProductSelection() {
                         </button>
                       </div>
 
-                      <div className="mt-5 flex items-center justify-between">
+                      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
                         <span className="text-sm font-semibold text-graphite/60">Quantity</span>
                         <div className="inline-flex items-center rounded-full border border-line">
                           <button
@@ -352,7 +352,7 @@ export default function ProductSelection() {
                           </button>
                         </div>
                       </div>
-                      <div className="mt-5 flex items-center justify-between border-t border-line pt-5 text-sm">
+                      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-5 text-sm">
                         <span className="text-graphite/55">Item total</span>
                         <strong>${(product.priceValue * item.quantity).toFixed(2)}</strong>
                       </div>
@@ -371,14 +371,14 @@ export default function ProductSelection() {
             )}
           </div>
 
-          <div className="border-t border-line px-6 py-6">
+          <div className="border-t border-line px-4 py-5 sm:px-6 sm:py-6">
             <div className="mb-4 flex items-center justify-between text-base">
               <span className="text-graphite/60">Subtotal</span>
               <strong className="font-display text-2xl">${cartSubtotal.toFixed(2)}</strong>
             </div>
             <Link
               href={cartItems.length > 0 ? getCartItemHref(cartItems) : selectedProduct.checkoutUrl}
-              className={`flex w-full justify-center rounded-full px-7 py-4 text-sm font-semibold transition hover:-translate-y-0.5 ${
+              className={`flex w-full justify-center rounded-full px-5 py-4 text-center text-sm font-semibold transition hover:-translate-y-0.5 sm:px-7 ${
                 cartItems.length > 0
                   ? "bg-ink text-white hover:bg-graphite"
                   : "pointer-events-none bg-mist text-graphite/35"
@@ -388,7 +388,7 @@ export default function ProductSelection() {
             </Link>
             <button
               type="button"
-              className="mt-3 w-full rounded-full border border-line px-7 py-4 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink"
+              className="mt-3 w-full rounded-full border border-line px-5 py-4 text-center text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink sm:px-7"
               onClick={() => setCartOpen(false)}
             >
               Continue Shopping

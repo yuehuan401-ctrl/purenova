@@ -47,8 +47,8 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
 
   return (
     <main className="site-scale min-h-screen bg-[radial-gradient(circle_at_74%_24%,rgba(220,236,242,0.9),transparent_30%),linear-gradient(180deg,#fff,#f7f8f6)] text-ink">
-      <header className="border-b border-white/70 bg-white/70 backdrop-blur-2xl">
-        <nav className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-8">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/70 backdrop-blur-2xl">
+        <nav className="mx-auto flex min-h-16 max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-3 md:px-8">
           <Link href="/" className="font-display text-2xl font-semibold tracking-[0.32em]">
             PureNova
           </Link>
@@ -59,8 +59,8 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
         </nav>
       </header>
 
-      <section className="px-8 py-24">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-[1fr_0.78fr] gap-10">
+      <section className="px-5 pb-16 pt-28 md:px-8 md:pb-20 md:pt-32 lg:pb-24 lg:pt-36">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-8 lg:grid-cols-[1fr_0.78fr] lg:gap-10">
           <div className="rounded-[2rem] bg-white p-10 shadow-soft">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-graphite/45">
               Checkout
@@ -75,7 +75,7 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
             <div className="mt-10 grid gap-5">
               <div className="rounded-[1.5rem] border border-line p-6">
                 <h2 className="font-display text-2xl font-semibold">Contact</h2>
-                <div className="mt-5 grid grid-cols-2 gap-4">
+                <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <input className="h-14 rounded-xl border border-line bg-mist px-5 outline-none focus:border-ink" placeholder="Email address" />
                   <input className="h-14 rounded-xl border border-line bg-mist px-5 outline-none focus:border-ink" placeholder="Phone number" />
                 </div>
@@ -83,7 +83,7 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
 
               <div className="rounded-[1.5rem] border border-line p-6">
                 <h2 className="font-display text-2xl font-semibold">Shipping</h2>
-                <div className="mt-5 grid grid-cols-2 gap-4">
+                <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <input className="h-14 rounded-xl border border-line bg-mist px-5 outline-none focus:border-ink" placeholder="First name" />
                   <input className="h-14 rounded-xl border border-line bg-mist px-5 outline-none focus:border-ink" placeholder="Last name" />
                   <input className="col-span-2 h-14 rounded-xl border border-line bg-mist px-5 outline-none focus:border-ink" placeholder="Address" />
@@ -112,7 +112,7 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
 
             <div className="space-y-5 border-b border-white/10 pb-7">
               {orderItems.map((item) => (
-                <div key={item.product.id} className="grid grid-cols-[88px_1fr] gap-4">
+                <div key={item.product.id} className="grid grid-cols-[76px_1fr] gap-4 sm:grid-cols-[88px_1fr]">
                   <div className="flex h-24 items-center justify-center overflow-hidden rounded-2xl bg-white/10">
                     <Image
                       src={item.product.image}
@@ -130,7 +130,7 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
                     </p>
                     <h3 className="mt-2 font-display text-lg font-semibold">{item.product.name}</h3>
                     <p className="mt-1 text-sm text-white/45">{item.product.cnName}</p>
-                    <div className="mt-3 flex justify-between gap-4 text-sm text-white/55">
+                    <div className="mt-3 flex flex-wrap justify-between gap-3 text-sm text-white/55">
                       <span>Qty: {item.quantity}</span>
                       <span>${(item.product.priceValue * item.quantity).toFixed(2)}</span>
                     </div>
